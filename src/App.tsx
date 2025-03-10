@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todo from './Todo';
+import { CopilotKit } from "@copilotkit/react-core";
+import { CopilotPopup } from "@copilotkit/react-ui";
+import "@copilotkit/react-ui/styles.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CopilotKit publicApiKey="ck_pub_1f2c74d33d9d84ff684c5d194f0d434b">
+        <Todo />
+        <CopilotPopup 
+          labels={{
+            title: "Popup Assistant",
+            initial: "How can I help you today?"
+          }}
+          instructions="AI help that shows up right when you need it"
+        />
+      </CopilotKit>
     </div>
   );
 }
