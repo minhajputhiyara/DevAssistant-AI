@@ -8,7 +8,7 @@ import "@copilotkit/react-ui/styles.css";
 function App() {
   return (
     <div className="App">
-      <CopilotKit publicApiKey="ck_pub_1f2c74d33d9d84ff684c5d194f0d434b">
+      <CopilotKit publicApiKey={process.env.REACT_APP_COPILOT_API_KEY || ""}>
         <Todo />
         <CopilotPopup 
           labels={{
