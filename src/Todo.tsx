@@ -90,7 +90,7 @@ const Todo: React.FC = () => {
 
   return (
     <div className="todo-container">
-      <h1>Todo App</h1>
+      <h1>DEV ASSISTANT</h1>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </div>
