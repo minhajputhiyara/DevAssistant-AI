@@ -8,8 +8,20 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo, deleteTodo }) => {
+  // Priority color mapping
+  const priorityColors = {
+    high: '#ff5252',    // Red for high priority
+    medium: '#ffb74d',  // Orange for medium priority
+    low: '#ffeb3b'      // Yellow for low priority
+  };
+
   return (
-    <div className="todo-item">
+    <div className={`todo-item priority-${todo.priority}`}>
+      <div 
+        className="priority-indicator" 
+        style={{ backgroundColor: priorityColors[todo.priority] }}
+        title={`Priority: ${todo.priority}`}
+      ></div>
       <input 
         type="checkbox" 
         checked={todo.completed} 
@@ -18,7 +30,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleTodo, deleteTodo }) => 
       <span className={todo.completed ? 'completed' : ''} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
         {todo.text}
       </span>
-      <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      <div className="todo-actions">
+        <span className="priority-badge" style={{ backgroundColor: priorityColors[todo.priority] }}>
+          {todo.priority}
+        </span>
+        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+      </div>
     </div>
   );
 };

@@ -75,6 +75,8 @@ h1 {
   padding: 12px;
   border-bottom: 1px solid #333;
   transition: background-color 0.2s;
+  position: relative;
+  padding-left: 16px;
 }
 
 .todo-item:hover {
@@ -125,10 +127,120 @@ h1 {
   opacity: 0.6;
 }
 
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priority-select {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border: 1px solid #3c3c3c;
+  border-radius: 0;
+  padding: 10px;
+  margin: 0 -1px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.priority-select:focus {
+  outline: none;
+  border-color: #569cd6;
+}
+
+.priority-indicator {
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.8;
+}
+
+.priority-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #1e1e1e;
+  letter-spacing: 0.5px;
+}
+
+/* Priority-specific hover effects */
+.priority-high:hover {
+  background-color: rgba(255, 82, 82, 0.1);
+}
+
+.priority-medium:hover {
+  background-color: rgba(255, 183, 77, 0.1);
+}
+
+.priority-low:hover {
+  background-color: rgba(255, 235, 59, 0.1);
+}
+
 /* Add responsive design */
 @media (max-width: 600px) {
   .todo-container {
     max-width: 100%;
     border-radius: 0;
   }
+}
+
+/* Todo Chat Card Styles */
+.todo-chat-card {
+  margin: 10px 0;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.todo-chat-status {
+  font-size: 12px;
+  color: #569cd6;
+  margin-bottom: 4px;
+}
+
+.todo-chat-item {
+  background-color: #252526;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.todo-chat-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.todo-chat-priority {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #1e1e1e;
+}
+
+.todo-chat-completed {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: #4caf50;
+  color: #1e1e1e;
+}
+
+.todo-chat-text {
+  font-size: 14px;
+  color: #d4d4d4;
+}
+
+.todo-chat-loading {
+  padding: 10px;
+  color: #569cd6;
+  font-style: italic;
+  font-size: 14px;
 }
